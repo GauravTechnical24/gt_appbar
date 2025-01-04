@@ -1,39 +1,64 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# gt_appbar
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+`gt_appbar` is a customizable AppBar widget for Flutter, offering enhanced features like bottom curveness and an optional divider for versatile app bar design.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+ - Offers extensive options for styling, including colors, text styles, and widget placements.
+ - Allows the AppBar to have a curved bottom edge for a distinct visual appeal.
+ - Provides an optional divider below the AppBar to enhance content separation and UI clarity.
+ - Ensures seamless integration with different themes and brightness modes for consistent app aesthetics.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add gt_appbar as a dependency in your pubspec.yaml file.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Minimal example:
 
 ```dart
-const like = 'sample';
+     GTAppBar(
+            title: "Global AppBar",
+          ),
 ```
 
-## Additional information
+Custom settings:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+   GTAppBar(
+            title: "Global AppBar",
+            backgroundColor: Colors.blueAccent.withOpacity(0.5),
+            showDivider: true,
+            bottomCurveness: 8.0,
+            elevation: 8.0,
+            centerTitle: false,
+            titleSpacing: 0.0,
+            leading: IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                // Handle menu press
+              },
+            ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {
+                  // Handle search press
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.notifications),
+                onPressed: () {
+                  // Handle notifications press
+                },
+                
+              ),
+              
+            ],
+          ),
+```
+
+## See also
+
+ - [linkedin](https://www.linkedin.com/in/gauravtechnical24/)

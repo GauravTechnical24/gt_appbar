@@ -1,7 +1,7 @@
 name: gt_appbar
 description: "A customizable AppBar widget for Flutter, offering enhanced features like bottom curveness and an optional divider for versatile app bar design. #flutter_appbar #sticky_app_bar #custom_appbar"
 version: 1.0.1
-homepage:
+homepage: https://github.com/GauravTechnical24/gt_appbar.git
 
 environment:
   sdk: ^3.6.0
