@@ -5,7 +5,7 @@
 ## Features
 
  - Offers extensive options for styling, including colors, text styles, and widget placements.
- - Allows the AppBar to have a curved bottom edge for a distinct visual appeal.
+ - Allows the AppBar to have a curved bottom edge with independent control over the bottom-left and bottom-right corners for a distinct visual appeal.
  - Provides an optional divider below the AppBar to enhance content separation and UI clarity.
  - Ensures seamless integration with different themes and brightness modes for consistent app aesthetics.
 
@@ -30,7 +30,8 @@ Custom settings:
             title: "Global AppBar",
             backgroundColor: Colors.blueAccent.withOpacity(0.5),
             showDivider: true,
-            bottomCurveness: 8.0,
+            bottomLeftRadius: 30.0,
+            bottomRightRadius: 0.0,
             elevation: 8.0,
             centerTitle: false,
             titleSpacing: 0.0,

@@ -45,41 +45,39 @@ class AppBarExample extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<AppBarExample> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  GTAppBar(
-            title: "Global AppBar",
-            backgroundColor: Colors.white,
-            showDivider: true,
-            bottomCurveness: 8.0,
-            elevation: 8.0,
-            centerTitle: false,
-            titleSpacing: 0.0,
-            leading: IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                // Handle menu press
-              },
-            ),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {
-                  // Handle search press
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.notifications),
-                onPressed: () {
-                  // Handle notifications press
-                },
-                
-              ),
-              
-            ],
+      appBar: GTAppBar(
+        title: "Global AppBar",
+        backgroundColor: Colors.white,
+        showDivider: true,
+        bottomLeftRadius: 30.0,
+        bottomRightRadius: 00.0,
+        elevation: 8.0,
+        centerTitle: false,
+        titleSpacing: 0.0,
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            // Handle menu press
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Handle search press
+            },
           ),
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Handle notifications press
+            },
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,4 +1,4 @@
-library gt_appbar;
+library;
 
 import 'package:flutter/material.dart';
 
@@ -58,6 +58,12 @@ class GTAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// Bottom border radius for the AppBar.
   final double bottomCurveness;
 
+  /// Bottom-left border radius for the AppBar. If not provided, [bottomCurveness] is used.
+  final double? bottomLeftRadius;
+
+  /// Bottom-right border radius for the AppBar. If not provided, [bottomCurveness] is used.
+  final double? bottomRightRadius;
+
   /// Spacing between the leading widget and the title.
   final double? titleSpacing;
 
@@ -88,6 +94,8 @@ class GTAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingWidth,
     this.toolbarOpacity,
     this.bottomCurveness = 0.0,
+    this.bottomLeftRadius,
+    this.bottomRightRadius,
     this.titleSpacing,
     this.showDivider = false,
     this.dividerColor,
@@ -127,8 +135,9 @@ class GTAppBar extends StatelessWidget implements PreferredSizeWidget {
           toolbarOpacity: toolbarOpacity ?? 1.0,
           titleSpacing: titleSpacing,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(bottomCurveness), // Apply bottom border radius
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(bottomLeftRadius ?? bottomCurveness),
+              bottomRight: Radius.circular(bottomRightRadius ?? bottomCurveness),
             ),
           ),
         ),
