@@ -1,30 +1,40 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:example/main.dart';
+import 'package:gt_appbar/gt_appbar.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets(
+    'ExampleApp smoke test - switches styles and toggles theme modes',
+    (WidgetTester tester) async {
+      await tester.pumpWidget(const ExampleApp());
+      await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      // Verify Material GTAppBar is visible initially
+      expect(find.text('Material GTAppBar'), findsOneWidget);
+      expect(find.byType(GTAppBar), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      // Verify Theme toggle buttons exist
+      expect(find.text('Dark'), findsOneWidget);
+      expect(find.text('Light'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+      // Tap Dark theme segment
+      await tester.tap(find.text('Dark'));
+      await tester.pumpAndSettle();
+
+      // Tap Cupertino segment to switch views
+      final cupertinoSegmentFinder = find.text('Cupertino');
+      expect(cupertinoSegmentFinder, findsOneWidget);
+      await tester.tap(cupertinoSegmentFinder);
+      await tester.pumpAndSettle();
+
+      // Verify Cupertino GTCupertinoNavigationBar is now rendered
+      expect(find.text('Cupertino GTNavBar'), findsOneWidget);
+      expect(find.byType(GTCupertinoNavigationBar), findsOneWidget);
+
+      // Switch back to Light theme
+      await tester.tap(find.text('Light'));
+      await tester.pumpAndSettle();
+      expect(find.byType(GTCupertinoNavigationBar), findsOneWidget);
+    },
+  );
 }
